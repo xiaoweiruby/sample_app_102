@@ -27,13 +27,20 @@ https://github.com/banister/sample_app/
 ```
 
 ```
-Rails.application.routes.draw do
-  get 'static_pages/home'
-  get 'static_pages/help'
-  get 'static_pages/about'
+root 'static_pages#home'
 
+Rails.application.routes.draw do
   root 'static_pages#home'
+
+  get '/home', to: 'static_pages#home'
+  get '/contact', to: 'static_pages#contact'
+
+  get '/help', to: 'static_pages#help'
+  get '/about', to: 'static_pages#about'
+
+
 end
+
 ```
 
 ```
@@ -137,15 +144,15 @@ https://www.rubyguides.com/2019/05/rails-link_to-method/
 </a>
 
 <a>
-  <%= link_to "Contact", root_path %>
+  <%= link_to "About", about_path %>
 </a>
 
 <a>
-  <%= link_to "About, root_path %>
+  <%= link_to "Contact", contact_path %>
 </a>
 
 <a>
-  <%= link_to "Help", root_path %>
+  <%= link_to "Help", help_path %>
 </a>
 ```
 
