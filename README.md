@@ -91,3 +91,60 @@ app/views/static_pages/home.html.erb
   sample application.
 </p>
 ```
+app/views/static_pages/contact.html.erb
+```
+<h1>Contact</h1>
+<p>
+  Contact the Ruby on Rails Tutorial about the sample app at the
+  <a href="http://railstutorial.org/">ontact page</a>
+</p>
+```
+app/views/layouts/application.html.erb
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
+
+```
+
+```
+<% provide(:title, "Home") %>
+```
+
+如何在Rails中使用link_to
+
+https://mixandgo.com/learn/how-to-use-link_to-in-rails
+
+如何使用Rails link_to方法（包含示例）
+
+https://www.rubyguides.com/2019/05/rails-link_to-method/
+
+```
+<a>
+  <%= link_to "Home", root_path %>
+</a>
+
+<a>
+  <%= link_to "Contact", root_path %>
+</a>
+
+<a>
+  <%= link_to "About, root_path %>
+</a>
+
+<a>
+  <%= link_to "Help", root_path %>
+</a>
+```
