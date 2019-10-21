@@ -200,3 +200,46 @@ https://www.rubyguides.com/2019/05/rails-link_to-method/
 10086  git push
 10087  git push origin static-pages
 ```
+
+https://stackoverflow.com/questions/4473229/rails-server-says-port-already-used-how-to-kill-that-process
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
+```
+app/helpers/application_helper.rb
+```
+module ApplicationHelper
+  def full_title (page_title = '')
+    base_title = "Ruby on Rails Tutorial Sample App"
+    if page_title.empty?
+      base_title
+    else
+      page_title + " | " + base_title
+    end
+  end
+end
+```
+```
+10102  git checkout master
+10103  git merge static-pages
+10104  git checkout -b rails-flavored-ruby
+10105  rails s
+10106  lsof -wni tcp:3000
+10107  rails s
+10108  kill -9 8842
+10109  rails s
+```
