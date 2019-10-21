@@ -1,24 +1,93 @@
-# README
+https://github.com/banister/sample_app/
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
+10014  cd rubyspace
+10015  ls
+10016  rails new sample_app
+10017  ls
+10018  cd sample_app
+10019  bundle install
+10020  rails s
+10020  git init
+10020  git add .
+10020  git commit -m "initial commit"
 
-Things you may want to cover:
+10021  git checkout -b static-pages
+10022  rails generate controller StaticPages
+10023  atom .
+10024  touch app/views/static_pages/home.html.erb
+10025  touch app/views/static_pages/help.html.erb
+10026  touch app/views/static_pages/about.html.erb
+10027  rails s
+10028  rake routes
+10029  rails s
+10030  git add .
+10031  git commit -m "add about root"
+10032  rails s
+```
 
-* Ruby version
+```
+Rails.application.routes.draw do
+  get 'static_pages/home'
+  get 'static_pages/help'
+  get 'static_pages/about'
 
-* System dependencies
+  root 'static_pages#home'
+end
+```
 
-* Configuration
+```
+app/controllers/static_pages_controller.rb
 
-* Database creation
+class StaticPagesController < ApplicationController
 
-* Database initialization
+def home
+end
 
-* How to run the test suite
+def help
+end
 
-* Services (job queues, cache servers, search engines, etc.)
+def about
+end
 
-* Deployment instructions
+end
 
-* ...
+```
+
+
+app/views/static_pages/about.html.erb
+```
+<h1>About Us</h1>
+<p>
+  The <a href="http://railstutorial.org">Ruby on Rails Tutorial</a>
+  is a project to make a book and screncasts to teach web development with
+  <a href="http://railstutorial.org">Ruby on Rails</a> This is the
+  sample application for the tutorial.
+</p>
+
+```
+
+
+app/views/static_pages/help.html.erb
+```
+<h1>Help</h1>
+
+<p>
+Get help on teh Ruby on Rails tutorial at the
+<a href="http://railstutorial.org/help">Rails Tutorial help page</a>
+To get help on this sample app, see
+the <a href="http://railstutorial.org/book">Rails Tutorial book</a>
+</p>
+
+```
+
+
+app/views/static_pages/home.html.erb
+```
+<h1>Sample App</h1>
+<p>
+  This is the home page for the
+  <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
+  sample application.
+</p>
+```
