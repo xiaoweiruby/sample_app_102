@@ -27,13 +27,20 @@ https://github.com/banister/sample_app/
 ```
 
 ```
-Rails.application.routes.draw do
-  get 'static_pages/home'
-  get 'static_pages/help'
-  get 'static_pages/about'
+root 'static_pages#home'
 
+Rails.application.routes.draw do
   root 'static_pages#home'
+
+  get '/home', to: 'static_pages#home'
+  get '/contact', to: 'static_pages#contact'
+
+  get '/help', to: 'static_pages#help'
+  get '/about', to: 'static_pages#about'
+
+
 end
+
 ```
 
 ```
@@ -137,14 +144,59 @@ https://www.rubyguides.com/2019/05/rails-link_to-method/
 </a>
 
 <a>
-  <%= link_to "Contact", root_path %>
+  <%= link_to "About", about_path %>
 </a>
 
 <a>
-  <%= link_to "About, root_path %>
+  <%= link_to "Contact", contact_path %>
 </a>
 
 <a>
-  <%= link_to "Help", root_path %>
+  <%= link_to "Help", help_path %>
 </a>
+```
+
+```
+10046  rails new sample_app
+10047  rails new sample_app_101
+10048  ls
+10049  cd sample_app_101
+10050  atom .
+10051  ruby -v
+10052  rvm install 2.4.4
+10053  bundle install
+10054  atom .
+10055  ruby -v
+10056  bundle install
+10057  atom .
+10058  bundle insatll
+10059  bundle install
+10060  rails s
+10061  git init
+10062  git add .
+10063  git commit -m "initial commit"
+10064  atom .
+10065  git remote add origin https://github.com/xiaoweiruby/sample_app_102.git
+10066  git push -u origin master
+10067  git checkout -b static-pages
+10068  rails generate controller StaticPages
+10069  touch app/views/static_pages/home.html.erb
+10070  touch app/views/static_pages/help.html.erb
+10071  touch app/views/static_pages/about.html.erb
+10072  touch app/views/static_pages/contact.html.erb
+10073  atom .
+10074  git add .
+10075  git commit -m "Add StaticPagesController action"
+10076  rails s
+10077  git add .
+10078  git commit -m "Add views StaticPages home help contact about html.erb"
+10079  git add .
+10080  git commit -m "Add application title & Edit about contact help home"
+10081  rails s
+10082  rake routes
+10083  rails s
+10084  git add .
+10085  git commit -m "Add link_to Home.html.erb"
+10086  git push
+10087  git push origin static-pages
 ```
