@@ -243,3 +243,23 @@ end
 10108  kill -9 8842
 10109  rails s
 ```
+
+https://github.com/railstutorial/sample_app
+
+```
+10075  cd rubyspace
+10076  ls
+10077  sample_app_101
+10078  git checkout -b filling-in-layout
+10079  atom .
+10080  rails s
+10081  rvm install 2.4.4
+10082  rails s
+10083  bundle install
+10084  rails s
+10086  curl -o app/assets/images/rails.png -OL railstutorial-china.org/assets/images/rails.png
+10087  rails s
+10088  touch app/views/layouts/_header.html.erb
+10089  touch app/views/layouts/_footer.html.erb
+10090  rails s
+ ```
