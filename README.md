@@ -292,3 +292,25 @@ https://github.com/railstutorial/sample_app
 </nav>
 </footer>
 ```
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+          <%= render 'layouts/header' %>
+        <div class="container">
+            <%= yield %>
+          <%= render 'layouts/footer' %>
+        </div>
+  </body>
+</html>
+```
